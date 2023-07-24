@@ -6,12 +6,10 @@ const port = 3000
 
 app.get('/', (req, res) => res.send('I am Express !'))
 
-app.get('/api/pokemons/:id', (req, res) => {
+app.get('/api/pokemons/:id/:name', (req, res) => {
     const id = parseInt (req.params.id)
-    const pokemon = pokemons.find(pokemon => pokemon.id === id)
-    res.send(`Vous avez demandé le pokémon ${pokemon.name}`)
+    const name = (req.params.name)
+    res.send(`Votre n${id} et le nom est ${name}`)
 })
-
-
 
 app.listen(port, () => console.log(`Notre application Node est démarrée sur: http://localhost:${port}`)) 
